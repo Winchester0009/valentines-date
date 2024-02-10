@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  
+  <title>Valentine's Date Invitation</title>
+</head>
+<Style>
+    body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-image: url('.gif'); 
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+.container {
+  text-align: center;
+  background-image: url('flower.gif'); 
+  background-size: cover;
+  padding: 150px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  height: 380px; /* Corrected from 'weight' to 'height' */
+}
+
+
+.animation {
+  width: 300px;
+  height: 80px;
+  background-image: url(''); /* Replace 'heart.png' with your heart image */
+  background-size: cover;
+  position: relative;
+  margin: auto;
+}
+
+
+@keyframes pulseHeart {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.container.rejected {
+  background-color: #ffdddd; /* Light red background for rejection */
+}
+
+
+.options {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff99cc; /* Light pink on hover */
+}
+
+</Style>
+<body>
+  <div class="container">
+   
+    <div class="animation">
+      
+    </div>
+    
+    
+    <div class="options">
+    
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

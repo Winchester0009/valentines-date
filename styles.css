@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-image: url('giphy.gif'); 
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+.container {
+  text-align: center;
+  background-image: url('bg2.gif'); /* Replace 'heart.png' with your heart image */
+  background-size: cover;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(245, 4, 4, 0.2);
+  font-size: 35px;
+  color: rgb(252, 3, 3); /* Set the text color */
+  text-shadow: 0 0 10px rgba(245, 4, 4, 0.2);
+}
+u{
+  color: black;
+}
+/* Your existing styles */
+
+.custom-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Add your other styles */
+
+.animation {
+  width: 300px;
+  height: 80px;
+  background-image: url('hert.png'); /* Replace 'heart.png' with your heart image */
+  background-size: cover;
+  position: relative;
+  margin: auto;
+}
+
+
+@keyframes pulseHeart {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.container.rejected {
+  background-color: #ffdddd; /* Light red background for rejection */
+}
+
+
+.options {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff99cc; /* Light pink on hover */
+}
+
