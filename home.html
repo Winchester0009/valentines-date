@@ -159,18 +159,17 @@ button:hover {
     modal.style.display = 'flex';
   }
 
-  function rejectDate() {
-    const chance = Math.random();
-    if (chance < 0.33) {
-      showModal('200.gif');
-    } else if (chance < 0.34) {
-      showModal('100.gif');
-    } else if (chance < 0.35) {
-      showModal('400.gif');
-    } else {
-      showModal('300.gif');
-    }
-  }
+  let rejectionTypes = ['100.gif', '200.gif', '300.gif', '400.gif', '500.gif', '600.gif'];
+let currentRejectionIndex = 0;
+
+function rejectDate() {
+  showModal(rejectionTypes[currentRejectionIndex]);
+  // Increment the index for the next rejection type
+  currentRejectionIndex = (currentRejectionIndex + 1) % rejectionTypes.length;
+}
+
+  showModal(rejectionType);
+
 
   function closeModal() {
     const modal = document.getElementById('customModal');
