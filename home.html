@@ -3,9 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
   <title>Valentine's Date Invitation</title>
 </head>
+<style> 
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-image: url('val.gif'); 
+  background-size: cover;
+  background-attachment: fixed; /* Fixed background */
+  background-position: center; /* Center the background image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+/* Media query for the specified dimensions */
+@media (max-width: 338px) and (max-height: 558px) {
+  body {
+    background-attachment: scroll; /* Switch to scroll on smaller screens */
+    height: 100vh; /* Adjust the height as needed */
+  }
+}
+
+
+.container {
+  text-align: center;
+  background-image: url('bg2.gif'); /* Replace 'bg2.gif' with your image */
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(245, 4, 4, 0.2);
+  font-size: 35px;
+  color: rgb(252, 3, 3); /* Set the text color */
+  text-shadow: 0 0 10px rgba(245, 4, 4, 0.2);
+}
+u{
+  color: black;
+}
+/* Your existing styles */
+
+.custom-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Add your other styles */
+
+.animation {
+  width: 300px;
+  height: 80px;
+  background-image: url('hert.png'); /* Replace 'heart.png' with your heart image */
+  background-size: cover;
+  position: relative;
+  margin: auto;
+}
+
+
+@keyframes pulseHeart {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.container.rejected {
+  background-color: #ffdddd; /* Light red background for rejection */
+}
+
+
+.options {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff99cc; /* Light pink on hover */
+}
+
+
+</style>
 <body>
   <div class="container">
     <h1></h1>
@@ -18,16 +121,65 @@
       <button onclick="rejectDate()">No</button>
     </div>
   </div>
-<!-- Custom modal -->
-<div class="custom-modal" id="customModal">
+ <!-- Custom modal -->
+ <div class="custom-modal" id="customModal">
   <div class="modal-content">
     <p class="modal-text"></p>
     <img class="modal-gif" src="" alt="GIF">
+    <p class="additional-message" id="additionalMessage"></p>
     <button onclick="closeModal()">close</button>
   </div>
 </div>
 
+<script>
+  function acceptDate() {
+    showModal('flower.gif', 'Screenshot it');
+    // Display additional message
+    document.getElementById('additionalMessage').textContent = "ScreenShot it, and send to the person who sent this!";
+  }
 
-  <script src="script.js"></script>
+  function showModal(content, message) {
+    const modal = document.getElementById('customModal');
+    const modalText = document.querySelector('.modal-text');
+    const modalGif = document.querySelector('.modal-gif');
+    
+    modalText.textContent = ''; // Clear previous text content
+    modalGif.src = ''; // Clear previous gif content
+    
+    if (content.endsWith('.gif')) {
+      modalGif.src = content; // Display the GIF
+    } else {
+      modalText.textContent = content; // Display text content
+    }
+
+    if (message) {
+      modalText.textContent += '\n' + message; // Add the additional message
+    }
+    
+    modal.style.display = 'flex';
+  }
+
+  function rejectDate() {
+    const chance = Math.random();
+    if (chance < 0.33) {
+      showModal('200.gif');
+    } else if (chance < 0.34) {
+      showModal('100.gif');
+    } else if (chance < 0.35) {
+      showModal('400.gif');
+    } else {
+      showModal('300.gif');
+    }
+  }
+
+  function closeModal() {
+    const modal = document.getElementById('customModal');
+    const additionalMessage = document.getElementById('additionalMessage');
+    
+    // Clear modal content and additional message
+    additionalMessage.textContent = '';
+    modal.style.display = 'none';
+  }
+</script>
 </body>
 </html>
